@@ -8,7 +8,7 @@ Setup:
 * Install Just
   * MacOS: `brew install just`
   * Linux: `curl --proto '=https' --tlsv1.2 -sSf https://just.systems/install.sh | bash -s -- --to /usr/local/bin`
-* Install Poetry: `pip install poetry`
+* Install UV: `curl -LsSf https://astral.sh/uv/install.sh | sh`
 * Install Python dependencies: `just install-dependencies`
 
 We define all the commands used in this work in `Justfile`. Run `just -l` for a list of supported tasks.
