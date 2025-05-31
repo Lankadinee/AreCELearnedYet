@@ -27,6 +27,8 @@ All the environmental configurations (e.g. data path, database configurations) a
 
 Download the real-world datasets and workloads from [here](https://www.dropbox.com/s/5bmvc1si5hysapf/data.tar.gz?dl=0).
 
+Download using script: `just download-data`
+
 The path of the data is defined in `.env` as variable `DATA_ROOT`. We support dataset with different versions, typically a csv file is located at: `{DATA_ROOT}/{dataset name}/{version name}.csv`.
 
 We define the `Table` object, which contains both data, some commonly used statistics and functions for convenient usage. Please refer to `lecarb/dataset/dataset.py` for details. (Most of the methods in our repo take `Table` as the dataset input.)

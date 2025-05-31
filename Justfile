@@ -8,6 +8,11 @@ install-dependencies:
 formatcsv path:
     sed -i '1 s/ /_/g' {{path}}
 
+download-data:
+    wget -O data.zip https://www.dropbox.com/scl/fo/44wi0vmlte14wehj8uhz8/APGPg-N3VcG7Fx1ULFppvgs?rlkey=ql0athicp81hkibv2gcadn0k1&st=lefb1jme&dl=1
+    unzip data.zip
+    rm data.zip
+
 csv2pkl path:
     #!/usr/bin/env python3
     from pathlib import Path
@@ -638,7 +643,7 @@ dynamic-naru-dmv11 dataset='dmv11' version='original' workload='base' update='in
 # DeepDB
 dynamic-deepdb-census13 dataset='census13' version='original' workload='base' update='ind' interval='0.2' seed='123':
     just append-data-{{update}} {{seed}} {{dataset}} {{version}} {{interval}}
-    just wkld-gen-update-base-train-valid {{seed}} {{dataset}} '{{version}}+{{version}}_{{update}}_{{interval}}' 'train_{{workload}}_{{update}}' '0.05' '10000'
+    just wkld-gen-update-base-train-valid {{seed}} {{dataset}} '{{version}}+{{version}}_{{update}}_{{interval}}' 'train_{{workload}}_{{update}}' '0.05'
     just update-deepdb 'original-spn_sample48842_rdc0.4_ms0.01-123' \
                      {{dataset}} '{{version}}+{{version}}_{{update}}_{{interval}}' 'train_{{workload}}_{{update}}' {{seed}}
     just wkld-gen-update-base-test {{seed}} {{dataset}} '{{version}}+{{version}}_{{update}}_{{interval}}' 'test_{{workload}}_{{update}}'
