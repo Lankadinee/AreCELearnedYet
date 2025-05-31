@@ -641,15 +641,16 @@ dynamic-naru-dmv11 dataset='dmv11' version='original' workload='base' update='in
                     '2000' {{dataset}} '{{version}}+{{version}}_{{update}}_{{interval}}' 'test_{{workload}}_{{update}}' {{seed}}
 
 # DeepDB
+# Fixed the data to 0.3 and removed the 10000 - working without any issues
 dynamic-deepdb-census13 dataset='census13' version='original' workload='base' update='ind' interval='0.2' seed='123':
     just append-data-{{update}} {{seed}} {{dataset}} {{version}} {{interval}}
     just wkld-gen-update-base-train-valid {{seed}} {{dataset}} '{{version}}+{{version}}_{{update}}_{{interval}}' 'train_{{workload}}_{{update}}' '0.05'
-    just update-deepdb 'original-spn_sample48842_rdc0.4_ms0.01-123' \
+    just update-deepdb 'original-spn_sample48842_rdc0.3_ms0.01-123' \
                      {{dataset}} '{{version}}+{{version}}_{{update}}_{{interval}}' 'train_{{workload}}_{{update}}' {{seed}}
     just wkld-gen-update-base-test {{seed}} {{dataset}} '{{version}}+{{version}}_{{update}}_{{interval}}' 'test_{{workload}}_{{update}}'
-    just test-deepdb '{{version}}+{{version}}_{{update}}_{{interval}}-spn_sample48842_rdc0.4_ms0.01-{{seed}}' \
+    just test-deepdb '{{version}}+{{version}}_{{update}}_{{interval}}-spn_sample48842_rdc0.3_ms0.01-{{seed}}' \
                      {{dataset}} '{{version}}+{{version}}_{{update}}_{{interval}}' 'test_{{workload}}_{{update}}' {{seed}}
-    just test-deepdb 'original-spn_sample48842_rdc0.4_ms0.01-123' \
+    just test-deepdb 'original-spn_sample48842_rdc0.3_ms0.01-123' \
                     {{dataset}} '{{version}}+{{version}}_{{update}}_{{interval}}' 'test_{{workload}}_{{update}}' {{seed}}
 
 dynamic-deepdb-forest10 dataset='forest10' version='original' workload='base' update='ind' interval='0.2' seed='123':
