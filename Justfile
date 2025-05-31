@@ -8,10 +8,15 @@ install-dependencies:
 formatcsv path:
     sed -i '1 s/ /_/g' {{path}}
 
+wget-data:
+    wget -O data.tar.gz https://www.dropbox.com/scl/fi/ghx8wh117tpr2rcf3y6le/data.tar.gz?rlkey=h4bdblx75ktdy5uolibo0ldpm&st=mvltaztn&dl=1
+    
+extract-data:
+    if [ -f data.tar.gz ]; then tar -xzf data.tar.gz; fi
+
 download-data:
-    wget -O data.zip https://www.dropbox.com/scl/fo/44wi0vmlte14wehj8uhz8/APGPg-N3VcG7Fx1ULFppvgs?rlkey=ql0athicp81hkibv2gcadn0k1&st=lefb1jme&dl=1
-    unzip data.zip
-    rm data.zip
+    just wget-data
+    just extract-data
 
 csv2pkl path:
     #!/usr/bin/env python3
