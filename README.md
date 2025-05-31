@@ -8,8 +8,16 @@ Setup:
 * Install Just
   * MacOS: `brew install just`
   * Linux: `curl --proto '=https' --tlsv1.2 -sSf https://just.systems/install.sh | bash -s -- --to /usr/local/bin`
-* Install Poetry: `pip install poetry`
+* Install UV: `curl -LsSf https://astral.sh/uv/install.sh | sh`
 * Install Python dependencies: `just install-dependencies`
+
+Activate environment, export python path and export all env variables
+
+```bash
+source .venv/bin/activate
+export PYTHONPATH=$PYTHONPATH:$(pwd)/lecarb
+export $(grep -v '^#' .env | xargs)
+```
 
 We define all the commands used in this work in `Justfile`. Run `just -l` for a list of supported tasks.
 
@@ -18,6 +26,8 @@ All the environmental configurations (e.g. data path, database configurations) a
 ## Dataset
 
 Download the real-world datasets and workloads from [here](https://www.dropbox.com/s/5bmvc1si5hysapf/data.tar.gz?dl=0).
+
+Download using script: `just download-data`
 
 The path of the data is defined in `.env` as variable `DATA_ROOT`. We support dataset with different versions, typically a csv file is located at: `{DATA_ROOT}/{dataset name}/{version name}.csv`.
 
