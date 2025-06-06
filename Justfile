@@ -19,7 +19,7 @@ download-data:
     just extract-data
 
 csv2pkl path:
-    #!/usr/bin/env python3
+    #!/usr/bin/env -S uv run --script
     from pathlib import Path
     import pandas as pd
     from pandas.api.types import CategoricalDtype
