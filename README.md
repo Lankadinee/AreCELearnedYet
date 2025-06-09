@@ -15,8 +15,7 @@ Activate environment, export python path and export all env variables
 
 ```bash
 source .venv/bin/activate
-export PYTHONPATH=$PYTHONPATH:$(pwd)/lecarb
-export $(grep -v '^#' .env | xargs)
+source export_env.sh
 ```
 
 We define all the commands used in this work in `Justfile`. Run `just -l` for a list of supported tasks.
