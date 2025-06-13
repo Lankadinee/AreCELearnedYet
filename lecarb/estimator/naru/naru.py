@@ -808,7 +808,16 @@ def update_naru(seed: int, dataset: str, version: str, workload: str, params: Di
 
     model_file = MODEL_ROOT / dataset / f"{params['model']}.pt"
     L.info(f"load model from {model_file} ...")
-    state = torch.load(model_file, map_location=DEVICE)
+    """
+    File "/home/titan/phd/AreCELearnedYetForked/lecarb/estimator/naru/naru.py", line 811, in update_naru
+        state = torch.load(model_file, map_location=DEVICE)
+    File "/home/titan/phd/AreCELearnedYetForked/.venv/lib/python3.8/site-packages/torch/serialization.py", line 586, in load
+        with _open_zipfile_reader(f) as opened_zipfile:
+    File "/home/titan/phd/AreCELearnedYetForked/.venv/lib/python3.8/site-packages/torch/serialization.py", line 246, in __init__
+        super(_open_zipfile_reader, self).__init__(torch._C.PyTorchFileReader(name_or_buffer))
+    AttributeError: 'PosixPath' object has no attribute 'tell'
+    """
+    state = torch.load(str(model_file), map_location=DEVICE)
     args = state['args']
     new_args = Args(**params)
     epochs = 1

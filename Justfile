@@ -660,7 +660,7 @@ dynamic-deepdb-census13 dataset='census13' version='original' workload='base' up
 
 dynamic-deepdb-forest10 dataset='forest10' version='original' workload='base' update='ind' interval='0.2' seed='123':
     just append-data-{{update}} {{seed}} {{dataset}} {{version}} {{interval}}
-    just wkld-gen-update-base-train-valid {{seed}} {{dataset}} '{{version}}+{{version}}_{{update}}_{{interval}}' 'train_{{workload}}_{{update}}' '0.05' '10000'
+    just wkld-gen-update-base-train-valid {{seed}} {{dataset}} '{{version}}+{{version}}_{{update}}_{{interval}}' 'train_{{workload}}_{{update}}' '0.05'
     just update-deepdb 'original-spn_sample581012_rdc0.4_ms0.005-123' \
                      {{dataset}} '{{version}}+{{version}}_{{update}}_{{interval}}' 'train_{{workload}}_{{update}}' {{seed}}
     just wkld-gen-update-base-test {{seed}} {{dataset}} '{{version}}+{{version}}_{{update}}_{{interval}}' 'test_{{workload}}_{{update}}'
@@ -671,7 +671,7 @@ dynamic-deepdb-forest10 dataset='forest10' version='original' workload='base' up
 
 dynamic-deepdb-power7 dataset='power7' version='original' workload='base' update='ind' interval='0.2' seed='123':
     just append-data-{{update}} {{seed}} {{dataset}} {{version}} {{interval}}
-    just wkld-gen-update-base-train-valid {{seed}} {{dataset}} '{{version}}+{{version}}_{{update}}_{{interval}}' 'train_{{workload}}_{{update}}' '0.05' '10000'
+    just wkld-gen-update-base-train-valid {{seed}} {{dataset}} '{{version}}+{{version}}_{{update}}_{{interval}}' 'train_{{workload}}_{{update}}' '0.05'
     just update-deepdb 'original-spn_sample2075259_rdc0.3_ms0.001-123' \
                      {{dataset}} '{{version}}+{{version}}_{{update}}_{{interval}}' 'train_{{workload}}_{{update}}' {{seed}}
     just wkld-gen-update-base-test {{seed}} {{dataset}} '{{version}}+{{version}}_{{update}}_{{interval}}' 'test_{{workload}}_{{update}}'
@@ -682,7 +682,7 @@ dynamic-deepdb-power7 dataset='power7' version='original' workload='base' update
 
 dynamic-deepdb-dmv11 dataset='dmv11' version='original' workload='base' update='ind' interval='0.2' seed='123':
     just append-data-{{update}} {{seed}} {{dataset}} {{version}} {{interval}}
-    just wkld-gen-update-base-train-valid {{seed}} {{dataset}} '{{version}}+{{version}}_{{update}}_{{interval}}' 'train_{{workload}}_{{update}}' '0.05' '10000'
+    just wkld-gen-update-base-train-valid {{seed}} {{dataset}} '{{version}}+{{version}}_{{update}}_{{interval}}' 'train_{{workload}}_{{update}}' '0.05'
     just update-deepdb 'original-spn_sample1000000_rdc0.2_ms0.001-123' \
                      {{dataset}} '{{version}}+{{version}}_{{update}}_{{interval}}' 'train_{{workload}}_{{update}}' {{seed}}
     just wkld-gen-update-base-test {{seed}} {{dataset}} '{{version}}+{{version}}_{{update}}_{{interval}}' 'test_{{workload}}_{{update}}'
